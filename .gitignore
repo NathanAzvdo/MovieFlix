@@ -4,7 +4,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+.env
 /database-docker
+
 ### STS ###
 .apt_generated
 .classpath
