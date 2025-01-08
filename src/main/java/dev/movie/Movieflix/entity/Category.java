@@ -4,11 +4,12 @@ package dev.movie.Movieflix.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+@Builder
 @Entity
 @Table(name="category")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class Category{
 
     @Id
