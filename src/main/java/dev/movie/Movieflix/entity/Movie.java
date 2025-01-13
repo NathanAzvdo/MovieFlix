@@ -22,7 +22,7 @@ public class Movie {
     private Long id;
 
     @Column(nullable = false)
-    private String title;
+    private String name;
 
     private String description;
 
