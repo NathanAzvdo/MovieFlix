@@ -1,12 +1,10 @@
 package dev.movie.Movieflix.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="movie")
-public class Movie {
+public class Movie{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,26 +24,27 @@ public class Movie {
 
     private String description;
 
-    @Column(name="release_date")
+    @Column(name = "release_date")
     private LocalDate releaseDate;
 
-    private Double rating;
-
-    @CreationTimestamp
-    @Column(name="created_at")
-    private LocalDateTime createdAt;
-
-    @UpdateTimestamp
-    @Column(name="updated_at")
-    private LocalDateTime updatedAt;
+    private double rating;
 
     @ManyToMany
-    @JoinTable(name="movie_category", joinColumns = @JoinColumn(name="movie_id"),
-    inverseJoinColumns = @JoinColumn(name="category_id"))
-    private List<Category> categories;
+    @JoinTable(
+            name = "movie_category",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private List<Category> categories = new ArrayList<>();
 
     @ManyToMany
-    @JoinTable(name="movie_streaming", joinColumns = @JoinColumn(name="movie_id"),
-            inverseJoinColumns = @JoinColumn(name="streaming_id"))
-    private List<Streaming> streamings;
+    @JoinTable(
+            name = "movie_streaming",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "streaming_id")
+    )
+    private List<Streaming> streamings = new ArrayList<>();
+
+
+
 }

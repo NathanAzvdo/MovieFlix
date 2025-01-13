@@ -15,11 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/movieflix/movie")
-@RequiredArgsConstructor
 public class MovieController{
 
-    @Autowired
+
+
     private final MovieService movieService;
+
+    public MovieController(MovieService movieService) {
+        this.movieService = movieService;
+    }
 
     @PostMapping
     public ResponseEntity<MovieResponse> save(@RequestBody MovieRequest movieRequest){
