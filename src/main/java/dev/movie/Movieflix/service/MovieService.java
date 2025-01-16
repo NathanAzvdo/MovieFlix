@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieService{
@@ -28,8 +29,43 @@ public class MovieService{
         return movieRepository.save(newMovie);
     }
 
+    public Optional<Movie> findById(Long id){
+        return movieRepository.findById(id);
+    }
+
     public List<Movie> findAll(){
         return movieRepository.findAll();
+    }
+
+    public Optional<Movie> update(Long movieId, Movie updatedMovie){
+        Optional<Movie> optionalMovie = movieRepository.findById(movieId);
+        if(optionalMovie.isPresent()){
+
+            List<Category> categories = this.findCategories(updatedMovie.getCategories());
+            List<Streaming> streamings = this.findStreaming(updatedMovie.getStreamings());
+
+            Movie movie = optionalMovie.get();
+            movie.setName(updatedMovie.getName());
+            movie.setReleaseDate(updatedMovie.getReleaseDate());
+
+            movie.getStreamings().clear();
+            movie.setStreamings(streamings);
+
+            movie.setRating(updatedMovie.getRating());
+
+            movie.getCategories().clear();
+            movie.setCategories(categories);
+
+            movie.setDescription(updatedMovie.getDescription());
+
+
+            return Optional.of(movieRepository.save(movie));
+        }
+        return Optional.empty();
+    }
+
+    public List<Movie> findByCategories(Long categoryId){
+        return movieRepository.findMovieByCategories(List.of(Category.builder().id(categoryId).build()));
     }
 
     private List<Category> findCategories(List<Category> categories){
@@ -54,6 +90,11 @@ public class MovieService{
         });
         return streamingsFound;
     }
+
+    public void deleteMovie(Long id){
+        movieRepository.deleteById(id);
+    }
+
 
 
 }

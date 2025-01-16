@@ -4,6 +4,7 @@ package dev.movie.Movieflix.controller;
 import dev.movie.Movieflix.controller.mapper.StreamingMapper;
 import dev.movie.Movieflix.controller.request.StreamingRequest;
 import dev.movie.Movieflix.controller.response.StreamingResponse;
+import dev.movie.Movieflix.entity.Movie;
 import dev.movie.Movieflix.entity.Streaming;
 import dev.movie.Movieflix.service.StreamingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController()
 @RequestMapping("/movieflix/streaming")
