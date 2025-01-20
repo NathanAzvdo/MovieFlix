@@ -11,8 +11,11 @@ import java.util.Optional;
 @Service
 public class StreamingService {
 
-    @Autowired
     private StreamingRepository repository;
+
+    public StreamingService(StreamingRepository repository) {
+        this.repository = repository;
+    }
 
     public List<Streaming> getAll(){
         return repository.findAll();
