@@ -6,7 +6,7 @@ import dev.movie.Movieflix.controller.request.UserRequest;
 import dev.movie.Movieflix.controller.response.LoginResponse;
 import dev.movie.Movieflix.controller.response.UserResponse;
 import dev.movie.Movieflix.entity.User;
-import dev.movie.Movieflix.service.TokenService;
+import dev.movie.Movieflix.config.TokenService;
 import dev.movie.Movieflix.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
