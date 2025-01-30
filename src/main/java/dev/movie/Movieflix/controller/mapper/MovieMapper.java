@@ -28,6 +28,7 @@ public class MovieMapper {
         return Movie.builder()
                 .name(request.name())
                 .description(request.description())
+                .releaseDate(request.releaseDate())
                 .rating(request.rating())
                 .categories(categories)
                 .streamings(streamings)
