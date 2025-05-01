@@ -67,8 +67,8 @@ POST /movieflix/streaming - Adicionar um novo streaming.
 GET /movieflix/streaming - Listar todos os streamings.
 GET /movieflix/streaming/{id} - Buscar streaming por ID.
 DELETE /movieflix/streaming/{id} - Deletar um streaming.
-Testes
-Para rodar os testes, execute:
+
+## Para rodar os testes, execute:
 
 ```bash
 ./mvnw test
