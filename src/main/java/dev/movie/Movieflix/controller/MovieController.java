@@ -6,8 +6,6 @@ import dev.movie.Movieflix.controller.response.MovieResponse;
 import dev.movie.Movieflix.entity.Movie;
 import dev.movie.Movieflix.service.MovieService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

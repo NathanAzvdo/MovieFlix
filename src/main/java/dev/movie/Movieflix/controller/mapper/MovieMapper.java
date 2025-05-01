@@ -6,7 +6,6 @@ import dev.movie.Movieflix.entity.*;
 import lombok.experimental.UtilityClass;
 
 import java.util.List;
-import java.util.Optional;
 
 @UtilityClass
 public class MovieMapper {
